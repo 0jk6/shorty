@@ -11,10 +11,14 @@ jobs:
       - uses: actions/setup-go@v5.0.1
         with: 
           go-version: "1.22"
+      - name: "cd"
+        run: cd backend
       - name: "install packages"
         run: go mod download
       - name: "build backend"
-        run: go build backend/main.go
+        run: go build main.go
+      - name: "ls"
+        run: ls -lrth
 
   build-frontend:
     runs-on: ubuntu-latest
